@@ -1,0 +1,27 @@
+{
+    "root": {
+        "path": "/",
+        "htmlData": [
+            {
+                "name": "another_file.html"
+            },
+            {
+                "name": "index.html"
+            },
+            {
+                "name": "event_list.html"
+            },
+            {
+                "name": "index_new.html"
+            }
+        ]
+    },
+    "root___event": {
+        "path": "/event/",
+        "htmlData": [
+            {
+                "name": "iniki.html"
+            }
+        ]
+    }
+}
