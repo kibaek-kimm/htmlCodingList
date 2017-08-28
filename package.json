@@ -12,6 +12,7 @@
     "express": "^4.15.3"
   },
   "devDependencies": {
-    "body-parser": "^1.17.2"
+    "body-parser": "^1.17.2",
+    "jade": "^1.11.0"
   }
 }

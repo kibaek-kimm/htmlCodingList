@@ -3,25 +3,29 @@
         "path": "/",
         "htmlData": [
             {
-                "name": "another_file.html"
+                "name": "another_file - 복사본.html",
+                "desc": "test"
+            },
+            {
+                "name": "another_file.html",
+                "desc": "FUck that nigga"
             },
             {
                 "name": "index.html"
-            },
-            {
-                "name": "event_list.html"
-            },
-            {
-                "name": "index_new.html"
             }
-        ]
+        ],
+        "depth": "1"
     },
-    "root___event": {
-        "path": "/event/",
+    "root___new": {
+        "path": "/new/",
         "htmlData": [
             {
-                "name": "iniki.html"
+                "name": "newfile.html"
             }
+        ],
+        "depth": "2",
+        "parentDir": [
+            "/"
         ]
     }
 }
