@@ -2,4 +2,4 @@
 
 #### This tool just for our team's work flow.
 
-[Example](http://kibaek-kimm.kr/images/example_edit_0.gif)
+<a href="http://kibaek-kimm.kr/images/example_edit_0.gif" target="_blank">Example</a>
