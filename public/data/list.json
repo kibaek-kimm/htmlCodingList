@@ -1,0 +1,534 @@
+{
+    "root": {
+        "path": "/",
+        "htmlData": [
+            {
+                "name": "adiclub01.html"
+            },
+            {
+                "name": "adiclub02.html"
+            },
+            {
+                "name": "adiclub03.html"
+            },
+            {
+                "name": "adiclubmember_culture.html"
+            },
+            {
+                "name": "adiclubmember_join.html"
+            },
+            {
+                "name": "adiclubmember_main.html"
+            },
+            {
+                "name": "adiclubmember_mobile.html"
+            },
+            {
+                "name": "Adiclubmember_MypageMain.html"
+            },
+            {
+                "name": "Adiclubmember_MypageMain_nomember.html"
+            }
+        ],
+        "folderData": [
+            {
+                "name": "event",
+                "desc": "캠페인 폴더"
+            },
+            {
+                "name": "layer_popups"
+            },
+            {
+                "name": "nmd_160804"
+            },
+            {
+                "name": "promotion"
+            },
+            {
+                "name": "yeezy_event160602"
+            }
+        ]
+    },
+    "root___event": {
+        "path": "/event/",
+        "folderData": [
+            {
+                "name": "alexander_wang",
+                "desc": "알렉산더 왕"
+            },
+            {
+                "name": "athletic"
+            },
+            {
+                "name": "brafinder"
+            },
+            {
+                "name": "campus"
+            },
+            {
+                "name": "citytrail"
+            },
+            {
+                "name": "climachill_kids"
+            },
+            {
+                "name": "climachill_polo"
+            },
+            {
+                "name": "climazone"
+            },
+            {
+                "name": "commitToMore"
+            },
+            {
+                "name": "creator_know_how"
+            }
+        ],
+        "desc": "캠페인 폴더"
+    },
+    "root___event___alexander_wang": {
+        "path": "/event/alexander_wang/",
+        "folderData": [
+            {
+                "name": "build"
+            }
+        ],
+        "htmlData": [
+            {
+                "name": "index.html",
+                "desc": "알렉산더왕 캠페인"
+            }
+        ],
+        "desc": "알렉산더 왕"
+    },
+    "root___event___athletic": {
+        "path": "/event/athletic/",
+        "folderData": [
+            {
+                "name": "build"
+            }
+        ],
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___event___brafinder": {
+        "path": "/event/brafinder/",
+        "folderData": [
+            {
+                "name": "build"
+            }
+        ],
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___event___campus": {
+        "path": "/event/campus/",
+        "folderData": [
+            {
+                "name": "build"
+            }
+        ],
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___event___citytrail": {
+        "path": "/event/citytrail/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___event___climachill_kids": {
+        "path": "/event/climachill_kids/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___event___climachill_polo": {
+        "path": "/event/climachill_polo/",
+        "folderData": [
+            {
+                "name": "build"
+            }
+        ],
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___event___climazone": {
+        "path": "/event/climazone/",
+        "htmlData": [
+            {
+                "name": "161017.html"
+            },
+            {
+                "name": "170404.html"
+            }
+        ]
+    },
+    "root___event___commitToMore": {
+        "path": "/event/commitToMore/",
+        "htmlData": [
+            {
+                "name": "commitAjuraMokdongPM7.html"
+            },
+            {
+                "name": "commitAjuraMokdongPM810.html"
+            },
+            {
+                "name": "commitAjuraPankyoPM420.html"
+            },
+            {
+                "name": "commitAjuraPankyoPM530.html"
+            },
+            {
+                "name": "commitAudrey.html"
+            },
+            {
+                "name": "commitKimSoHyang.html"
+            }
+        ]
+    },
+    "root___event___creator_know_how": {
+        "path": "/event/creator_know_how/",
+        "folderData": [
+            {
+                "name": "1_kim seung gyu"
+            },
+            {
+                "name": "2_ameera"
+            },
+            {
+                "name": "3_kimseunghyeon"
+            },
+            {
+                "name": "4_audrey"
+            },
+            {
+                "name": "5_yunsungbin"
+            },
+            {
+                "name": "6_kimjiyeon"
+            }
+        ]
+    },
+    "root___event___creator_know_how___1_kim seung gyu": {
+        "path": "/event/creator_know_how/1_kim seung gyu/",
+        "folderData": [
+            {
+                "name": "build"
+            }
+        ],
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___event___creator_know_how___2_ameera": {
+        "path": "/event/creator_know_how/2_ameera/",
+        "folderData": [
+            {
+                "name": "build"
+            }
+        ],
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___event___creator_know_how___3_kimseunghyeon": {
+        "path": "/event/creator_know_how/3_kimseunghyeon/",
+        "folderData": [
+            {
+                "name": "build"
+            }
+        ],
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___event___creator_know_how___4_audrey": {
+        "path": "/event/creator_know_how/4_audrey/",
+        "folderData": [
+            {
+                "name": "build"
+            }
+        ],
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___event___creator_know_how___5_yunsungbin": {
+        "path": "/event/creator_know_how/5_yunsungbin/",
+        "folderData": [
+            {
+                "name": "build"
+            }
+        ],
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___event___creator_know_how___6_kimjiyeon": {
+        "path": "/event/creator_know_how/6_kimjiyeon/",
+        "folderData": [
+            {
+                "name": "build"
+            }
+        ],
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___layer_popups": {
+        "path": "/layer_popups/",
+        "htmlData": [
+            {
+                "name": "join_adiclub_170823.html"
+            }
+        ]
+    },
+    "root___nmd_160804": {
+        "path": "/nmd_160804/",
+        "htmlData": [
+            {
+                "name": "enter.html"
+            },
+            {
+                "name": "guide.html"
+            },
+            {
+                "name": "guide_done.html"
+            },
+            {
+                "name": "guide_live.html"
+            }
+        ]
+    },
+    "root___promotion": {
+        "path": "/promotion/",
+        "folderData": [
+            {
+                "name": "44_4614"
+            },
+            {
+                "name": "44_5414"
+            },
+            {
+                "name": "44_5514"
+            },
+            {
+                "name": "44_5994"
+            },
+            {
+                "name": "44_6054"
+            },
+            {
+                "name": "44_6074"
+            },
+            {
+                "name": "44_6074_1"
+            },
+            {
+                "name": "44_6074_2"
+            },
+            {
+                "name": "44_6074_3"
+            },
+            {
+                "name": "44_6114"
+            },
+            {
+                "name": "44_6134"
+            },
+            {
+                "name": "44_6234"
+            },
+            {
+                "name": "44_dayone"
+            },
+            {
+                "name": "44_women"
+            }
+        ],
+        "desc": "내용 추가"
+    },
+    "root___promotion___44_4614": {
+        "path": "/promotion/44_4614/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___promotion___44_5414": {
+        "path": "/promotion/44_5414/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___promotion___44_5514": {
+        "path": "/promotion/44_5514/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___promotion___44_5994": {
+        "path": "/promotion/44_5994/",
+        "folderData": [
+            {
+                "name": "fashion"
+            },
+            {
+                "name": "w"
+            }
+        ],
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___promotion___44_6054": {
+        "path": "/promotion/44_6054/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ],
+        "folderData": [
+            {
+                "name": "w"
+            }
+        ]
+    },
+    "root___promotion___44_6074": {
+        "path": "/promotion/44_6074/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___promotion___44_6074_1": {
+        "path": "/promotion/44_6074_1/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___promotion___44_6074_2": {
+        "path": "/promotion/44_6074_2/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___promotion___44_6074_3": {
+        "path": "/promotion/44_6074_3/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___promotion___44_6114": {
+        "path": "/promotion/44_6114/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___promotion___44_6134": {
+        "path": "/promotion/44_6134/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___promotion___44_6234": {
+        "path": "/promotion/44_6234/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___promotion___44_dayone": {
+        "path": "/promotion/44_dayone/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___promotion___44_women": {
+        "path": "/promotion/44_women/",
+        "htmlData": [
+            {
+                "name": "index.html"
+            }
+        ]
+    },
+    "root___yeezy_event160602": {
+        "path": "/yeezy_event160602/",
+        "htmlData": [
+            {
+                "name": "event_enter.html"
+            },
+            {
+                "name": "yeezy_gate.html"
+            },
+            {
+                "name": "yeezy_gate2.html"
+            },
+            {
+                "name": "yeezy_gate_finish.html"
+            },
+            {
+                "name": "yeezy_gate_over.html"
+            },
+            {
+                "name": "yeezy_guide.html"
+            },
+            {
+                "name": "yeezy_guide_button.html"
+            },
+            {
+                "name": "yeezy_guide_over.html"
+            }
+        ]
+    }
+}

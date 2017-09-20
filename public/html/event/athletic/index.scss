@@ -1,0 +1,220 @@
+@import './app/css/adidas/scss/common/mixin.scss';
+@import './app/css/adidas/scss/common/common.scss';
+
+
+#athletics{
+	.effectbox{
+		&.event{
+			.bg{
+				img{
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+			.copy_wrap{
+				top:50%;
+				opacity: 1;
+			}
+		}
+	}
+
+	.button{
+		display: inline-block;
+		background: #fff;
+		padding: 1.6rem 3rem;
+		color: #000;
+		font-size: 1.25rem;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		font-family: 'NotoSansKR';
+	}
+
+	.masthead{
+		width: 100%;
+		padding-bottom: 85.6%;
+		position: relative;
+
+		.bg{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+
+			img{
+				width: 100%;
+			}
+		}
+
+		h3{
+			width: 50%;
+			padding-bottom: 40%;
+			background:rgba(0,0,0,0.8);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			z-index: 5;
+
+			@include css3(transform,translate3d(-50%,-50%,0));
+
+			span{
+				width: 100%;
+				display: inline-block;
+				color: #fff;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				font: 1.3rem/1.3rem 'AdihausDIN-Cond';
+				text-transform: uppercase;
+				letter-spacing: 0.3rem;
+				text-align: center;
+
+				@include css3(transform,translate3d(-50%,-50%,0));
+			}
+		}
+	}
+	/* masthead END */
+
+	.statement{
+		width: 100%;
+		padding-bottom: 65%;
+		position: relative;
+		background: #f4f4f4;
+
+		.copy_wrap{
+			width: 100%;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			padding: 0 1.2rem;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			@include css3(transform,translate3d(0,-50%,0));
+			&.event{
+				opacity: 1;
+			}
+			>*{
+				text-align: center;
+			}
+
+			h4{
+				margin-bottom: 1rem;
+			    font:700 1.2rem/1rem 'NotoSansKR';
+			}
+
+			.desc{
+				margin-bottom: 1.5rem;
+			    font:400 1.1rem/2.1rem 'NotoSansKR';
+			}
+
+			.button{
+				width: 100%;
+			}
+		}
+	}
+
+	.category_box{
+		width: 100%;
+		padding-bottom: 92%;
+		position: relative;
+
+		.bg{
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			img{
+				width: 100%;
+			    transform: scale(0.8);
+				opacity: 0;
+				transition: all, 0.3s;
+				-webkit-transition: all, 0.3s;
+			}
+		}
+
+		.copy_wrap{
+			width: 100%;
+			position: absolute;
+			top: 70%;
+			left: 0;
+			padding: 0 1.2rem;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			text-align: center;
+			opacity: 0;
+			transition: all, 0.4s;
+			-webkit-transition: all, 0.4s;
+			@include css3(transform,translate3d(0,-35%,0));
+			&.event{
+				opacity: 1;
+			}
+			>*{
+				text-align: center;
+				color: #fff;
+			}
+
+			h5{
+				font-size: 2.2rem;
+				line-height: 2.2rem;
+				letter-spacing: 0.2rem;
+			}
+
+			.desc{
+				margin-bottom: 1.2rem;
+				font:400 1.3rem/2.3rem 'NotoSansKR';
+			}
+
+			.button{
+				width: 15rem;
+				color: #000;
+			}
+		}
+	}
+	/* category_box END */
+
+	.banner_box{
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		margin: 3rem 1.5rem;
+		background: #000;
+
+		.bg{
+			img{
+				width: 100%;
+			}
+		}
+
+		.copy_wrap{
+			width: 100%;
+			position: relative;
+			padding: 3rem 1.5rem;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			text-align: center;
+			opacity: 0;
+			transition: all, 0.4s;
+			-webkit-transition: all, 0.4s;
+
+			>*{
+				text-align: center;
+				color: #fff;
+			}
+
+			h5{
+				font-size: 2.3rem;
+				line-height: 2.3rem;
+				letter-spacing: 0.3rem;
+				text-transform: uppercase;
+			}
+
+			.desc{
+				margin-bottom: 1.2rem;
+				font:400 1.3rem/2.3rem 'NotoSansKR';
+			}
+
+			.button{
+				width: 100%;
+				color: #000;
+			}
+		}
+	}
+}

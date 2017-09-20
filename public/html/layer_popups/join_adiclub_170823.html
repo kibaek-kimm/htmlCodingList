@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="x-rim-auto-match" content="none">
+
+	<!-- <link href="/css/adidas/style.css" type="text/css" rel="stylesheet" /> -->
+	<link href="/css/adidas/style.css" type="text/css" rel="stylesheet" />
+	<link href="/css/adidas/fonts.css" type="text/css" rel="stylesheet" />
+
+	<script type="text/javascript" src="/js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="/js/swipe.js"></script>
+	<script type="text/javascript" src="/js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="/js/modalPopup.min.js"></script>
+
+	<title>아디다스 모바일</title>
+</head>
+<body>
+
+	<div id="wrap">
+		<!-- 170320 Quick menu -->
+		<div id="quick-menu">
+			<div class="layer-wrapper">
+				<div class="overlay"></div>
+				<div class="menubtn_wrap">
+					<div class="btn_list">
+
+						<a href="#" class="btn btn_login">
+							<span class="txt">로그인</span>
+							<span class="img icons" data-icon=""></span>
+						</a>
+						<a href="" class="btn btn_logout">
+							<span class="txt">로그아웃</span>
+							<span class="img"></span>
+						</a>
+						<a href="" class="btn btn_member">
+							<span class="txt">회원가입</span>
+							<span class="img icons" data-icon=""></span>
+						</a>
+						<a href="" class="btn btn_mypage">
+							<span class="txt">마이페이지</span>
+							<span class="img icons" data-icon=""></span>
+						</a>
+						<!-- 170626 주문배송 아이콘 변경  -->
+						<a href="" class="btn btn_order">
+							<span class="txt">주문배송</span>
+							<span class="img icons"></span>
+						</a>
+						<!-- 170626 주문배송 아이콘  end -->
+						<a href="" class="btn btn_cs">
+							<span class="txt">고객센터</span>
+							<span class="img icons" data-icon=""></span>
+						</a>
+						<!-- 170626 스피드배송 추가 -->
+						<a href="" class="btn speed_order">
+							<span class="txt">스피드배송</span>
+							<span class="img icons" data-icon=""></span>
+						</a>
+						<!-- 170626 스피드배송 추가 end -->
+
+					</div>
+				</div>
+			</div>
+
+			<div class="toggle_btn">
+				<div class="close_x_btn"></div>
+				<div class="default icons" data-icon=""></div>
+			</div>
+
+		</div>
+		<!-- 170320 Quick END -->
+		<div id="header">
+
+			<div class="nav_menu">
+				<div class="nav_menu_inner">
+					<!-- 160913 "최근 본 상품" 데이터 없을 시, style 추가 -->
+					<ul class="gnb" >
+						<li class="strong dep">
+							<a href="#">MEN</a>
+
+						</li>
+						<li class="strong dep">
+							<a href="#">WOMEN</a>
+
+						</li>
+
+						<li class="strong dep">
+							<a href="#">KIDS</a>
+						</li>
+
+						<li class="dep">
+							<a href="#">SPORTS</a>
+						</li>
+						<!-- //160513 GNB SPORTS 에 서브메뉴 샘플 -->
+
+						<!-- 160513 class="dep" 추가 -->
+						<li class="dep">
+							<a href="#">BRANDS</a>
+						</li>
+
+						<li class="dep">
+							<a href="#">CUSTOMIZE</a>
+						</li>
+						<li class="dep">
+							<a href="#">FEATURES</a>
+						</li>
+					</ul>
+				</div>
+				<!-- //nav_menu_inner -->
+			</div>
+			<!-- //nav_menu -->
+
+			<div class="nav_search">
+				<div class="sch_box">
+					<form action="#" method="get">
+						<fieldset>
+							<input class="simplesearchinput textinput" id="S_PROD_NM" type="text" name="S_PROD_NM" placeholder="Search" autocomplete="off">
+							<button type="submit" value="검색">
+								<span class="icons"></span>
+							</button>
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="sch_tab">
+					<a href="#" class="on">최근 검색어</a>
+					<a href="#">인기 검색어</a>
+				</div>
+
+				<ul class="keyword_recent" id="keyword_recent">
+					<li><a href="javascript:doTcKeywordSearch('스텔라매카트니');">스텔라매카트니<span class="close_x_btn" onclick="fnDeletePopSearchWord('스텔라매카트니');"></span></a></li>
+					<li><a href="javascript:doTcKeywordSearch('zx');">zx<span class="close_x_btn" onclick="fnDeletePopSearchWord('zx');"></span></a></li>
+					<li><a href="javascript:doTcKeywordSearch('슈퍼스타');">슈퍼스타<span class="close_x_btn" onclick="fnDeletePopSearchWord('슈퍼스타');"></span></a></li>
+				</ul>
+
+				<ol class="sch_list" style="display: none;">
+					<li><span>1</span><a href="#">슈퍼스타</a></li>
+					<li><span>2</span><a href="#">수퍼스타</a></li>
+					<li><span>3</span><a href="#">트랙탑</a></li>
+					<li><span>4</span><a href="#">스탠스미스</a></li>
+					<li><span>5</span><a href="#">MI SUPERSTAR</a></li>
+					<li><span>6</span><a href="#">패딩</a></li>
+					<li><span>7</span><a href="#">키엘</a></li>
+					<li><span>8</span><a href="#">이큅먼트</a></li>
+					<li><span>9</span><a href="#">니고</a></li>
+					<li><span>10</span><a href="#">부스트</a></li>
+				</ol>
+				<!-- <div class="bnn"><img src="/images/adidas/bnn_sch1.jpg" alt=""></div>
+				<div class="bnn"><img src="/images/adidas/bnn_sch2.jpg" alt=""></div> -->
+			</div>
+
+			<div class="nav_main">
+				<a href="javascript:void(0)" class="btn_slide">
+					<span class="line1"></span>
+					<span class="line2"></span>
+					<span class="line3"></span>
+				</a>
+				<h1><a href="javascript:void(0);" class="logo icons"></a></h1>
+				<a href="javascript:void(0)" class="btn_search icons">
+					<span class="icons"></span>
+				</a>
+				<a href="#" class="btn_market icons">
+					<!-- <span class="adihs-din-b">12</span> -->
+				</a>
+			</div>
+
+			<div class="notice_tits">
+				<div class="notice_tits_wrap">
+					<!-- 170627 -->
+					<div class="collout_bar on" id="h-pop-free-delivery_btn">
+						<a href="javascript:void(0)"></a>
+						<div class="img"><img src="http://imagem.adidas.co.kr/images/adidas/ico_deliver.gif" alt=""></div>
+						<p>7월 한 달간, 전 제품 무료배송/교환/반품 서비스</p>
+					</div>
+					<!-- 170627 end -->
+				</div>
+				<a href="javascript:void(0)" class="more"><img src="http://imagem.adidas.co.kr/images/adidas/icon_view_more.png" alt=""></a>
+			</div>
+
+			<script type="text/javascript">
+				(function($){
+					// 170627
+					$(document).ready(function() {
+
+						var html = "";
+
+						html += '  <div class="header_layerpopup layerpopup headerpop_freedeliver" id="h-pop-free-delivery" style="display: none;background: rgba(255,255,255,0.95);">';
+						html += '    <a href="javascript:void(0)" class="close_x_btn"></a>';
+						html += '    <div class="contents" style="padding-top:110px;">';
+						html += '      <div class="bg"></div>';
+						html += '      <div class="main_icon" style="background:none;height: 3rem;"><span class="icons"><img src="http://imagem.adidas.co.kr/images/adidas/ico_pop_deliver.gif" style="width:100%" /></span></div>';
+						html += '      <h2 style="font-size:2.5rem;">FREE DELIVERY!</h2>';
+						html += '      <p class="bold" style="padding-bottom:0;font-size:2rem;line-height:2.8rem;">7월 한 달간, <br>';
+						html += '        전 제품<br>';
+						html += '        무료배송/교환/반품 서비스</p>';
+						html += '      <p style="font-size: 1.3rem;padding-top: 0.5rem;">(단, 마이아디다스 제외)</p>';
+						html += '      <p style="font-weight:400;font-size:1.5rem;line-height:2.3rem;font-family:\'NotoSansKR\'">2017.7.1~7.31 주문 건에 한해<br/>무료 배송/교환/반품 제공됩니다.</p>';
+						html += '    </div>';
+						html += '  </div>';
+						jQuery('body').prepend(html);
+
+
+
+
+						// 170627 헤더 작은 공지들 (로테이션기능 주석)
+						var tits_index = 0;
+						var len = $("#header .notice_tits .notice_tits_wrap .collout_bar").length;
+						// var rolling = setInterval(notice_tits_auto, 1600);
+
+						function notice_tits_auto(){
+							if( tits_index == len-1 ){
+							  tits_index = 0;
+							  $("#header .notice_tits .notice_tits_wrap .collout_bar").removeClass('on').eq(0).addClass('on');
+
+							}else{
+							  tits_index ++;
+							  $("#header .notice_tits .notice_tits_wrap .collout_bar").removeClass('on').eq(tits_index).addClass('on');
+							}
+						}
+
+
+						// 170627 헤더팝업 무료배송
+						$('#h-pop-free-delivery_btn').bind('click',function(){
+							document.getElementById('wrap').scrollTopBefore = window.scrollY;
+							document.getElementById('wrap').style.display = 'block';
+							document.getElementById('h-pop-free-delivery').style.display = 'block';
+							window.scrollTo(0, 0);
+							$('html').addClass('no_srl');
+						});
+
+						// 170627 당일배송 지역찾기 레이어 닫았을 떄
+						$('.layerpopup .close_x_btn').bind('click',function(){
+							document.getElementById('h-pop-free-delivery').style.display = 'none';
+							document.getElementById('wrap').style.display = 'block';
+							window.scrollTo(0, document.getElementById('wrap').scrollTopBefore);
+							$('html').removeClass('no_srl');
+						});
+
+						$.fn.cutString = function(options){
+							var elemObj = $(this);
+							var elem = $(this);
+							var tempText = options.text;
+							var isOverLine = false;
+							var contentArray = options.text.split('<br/>');
+							var textLength = 0;
+
+							for(var i = 0; i<contentArray.length; i++){
+								if(contentArray[i] !== ''){
+									textLength += contentArray[i].length;
+								}
+							}
+
+							if(textLength >= options.cutLength){
+								isOverLine = true;
+								tempText = options.text.substring(0,options.cutLength);
+								tempText += '...'
+							}
+
+							if(!isOverLine){
+								$(this).html(options.text);
+								return;
+							}
+
+							var aElem = $('<a href="javascript:void(0)" class="more_read">'+(options.buttonName != undefined ? options.buttonName.open : '더보기') +'</a>');
+							aElem.bind('click',toggleContent);
+
+							elemObj.html(tempText);
+							elemObj.append(aElem);
+
+							function toggleContent(){
+								if($(this).hasClass('shortened')) {
+									elemObj.html(tempText);
+									$(this).text((!!options.buttonName ? options.buttonName.open : '더보기')).removeClass('shortened');
+									elemObj.append(this);
+								} else {
+									elemObj.html(options.text);
+									$(this).text((!!options.buttonName ? options.buttonName.close : '줄이기')).addClass('shortened');
+									elemObj.append(this);
+								}
+								aElem.bind('click',toggleContent);
+
+								if(!!options.callback){
+									options.callback.call(elemObj,($(this).hasClass('shortened') ? true : false));
+								}
+							}
+						};
+				    });
+					// 170627 END
+				})(jQuery);
+				</script>
+
+		</div>
+
+		<div id="container" class="main">
+
+			<!-- 170124 start -->
+			<div id="notice-popup" class="notice_deliv">
+				<a href="javascript:void(0)" class="close_x_btn white"></a>
+				<p class="tit">배송 지연 안내</p>
+				<p class="desc">설 명절로 인한 택배사의 배송 물량 증가로 1월 24일 오후 주문 부터는<br/>설 명절 이후(1월 31일) 순차적으로 배송됩니다.</p>
+			</div>
+
+			<script type="text/javascript">
+				var notiPopElem = document.getElementById('notice-popup');
+				var originClassName = notiPopElem.className;
+				var notiPopTimer;
+				var closeNotiPop = function(){
+					notiPopElem.className = originClassName;
+					setTimeout(function(){
+						notiPopElem.parentNode.removeChild(notiPopElem);
+					},1000);
+				};
+
+				// 1초후 노출
+				setTimeout(function(){
+					// notiPopElem.className += ' active';
+
+					// 5초 후 노출 후 DOM 삭제
+					// notiPopTimer = setTimeout(closeNotiPop,5000);
+				},1000);
+
+				notiPopElem.querySelector('.close_x_btn').addEventListener('click',function(){
+					clearTimeout(notiPopTimer);
+					closeNotiPop();
+				});
+				// ModalPopup.openPopup('coupon-popup');
+
+
+			</script>
+			<!-- //170124 -->
+
+
+			<!-- 161219 main_visual 클래스 추가 -->
+			<div id="visual_home" class="main_visual">
+				<div class="visual_slider">
+
+					<div class="box">
+						<div class="img">
+							<img src="http://image.adidas.co.kr/upload/banner/7ed0a13995e344bca1c6a03df513039b_0519145526.jpg" alt="">
+						</div>
+						<div class="head_cover"></div>
+						<div class="btn">
+							<a href="#">관련 기획전 바로가기<span class="icons" data-icon=""></span></a>
+							<a href="#">관련 제품 바로가기<span class="icons" data-icon=""></span></a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- //visual_home -->
+
+			<!-- 170223 Start 메인 GNB  -->
+			<div class="category_menu_wrapper">
+				<ul class="gnb">
+					<li class="strong dep">
+						<a href="javascript:void(0)">MEN</a>
+					</li>
+					<li class="strong dep">
+						<a href="javascript:void(0)">WOMEN</a>
+					</li>
+					<li class="strong dep line">
+						<a href="javascript:void(0)">KIDS</a>
+					</li>
+					<li class="dep">
+						<a href="javascript:void(0)">SPORTS</a>
+					</li>
+
+					<li class="dep">
+						<a href="javascript:void(0)">BRANDS</a>
+					</li>
+
+					<li class="dep vr_store">
+						<a href="javascript:void(0)">VR STORE</a>
+					</li>
+				</ul>
+			</div>
+			<!-- 170223 End -->
+
+			<div class="fetures_banner" style="margin-bottom: 30px;">
+				<div><img src="/images/adidas/temp_main3.jpg" alt="" style="width:100%;"></div>
+				<div><img src="/images/adidas/temp_main4.jpg" alt="" style="width:100%;"></div>
+			</div>
+			<!-- //161219 -->
+
+		</div>
+		<!-- //container //main -->
+
+		<div id="footer" class="footer_upt_161121">
+			<div class="f_menu col5">
+				<!--
+				<a href="javascript:doLogins();" id="ft_login">로그인</a>
+				-->
+				<!-- 161121 문구수정 주문/배송조회 => 주문배송 -->
+				<a href="javascript:goOrdDeliSel();" onmousedown="javascript:trk_flashEnvView('_TRK_PI=MYPAGE');trk_clickTrace('EVT','^아디다스모바일^하단 매뉴^주문배송');">주문배송</a>
+				<a href="javascript:goCsCenter();" onmousedown="javascript:trk_flashEnvView('_TRK_PI=COSTC');trk_clickTrace('EVT','^아디다스모바일^하단 매뉴^고객센터');">고객센터</a>
+				<a href="http://m.adidas.co.kr/MO/Club/clubMembership.action?div=program">아디클럽</a>
+				<a href="javascript:goNotice();" onmousedown="javascript:trk_clickTrace('EVT','^좌메뉴^공지사항');">공지사항</a>
+				<a href="javascript:goStore();" onmousedown="javascript:trk_flashEnvView('_TRK_PI=MARKET');trk_clickTrace('EVT','^아디다스모바일^하단 매뉴^매장안내');">매장찾기</a>
+			</div>
+			<div class="f_info">
+				<div class="inner">
+					<p class="tit">아디다스코리아(주)</p>
+					<p>서울시 서초구 서초대로 74길 4, 삼성생명서초타워 23층 (06620)</p>
+					<p>대표 : 에드워드 닉슨</p>
+					<p>사업자등록번호 : 214-81-07412 </p>
+					<p>통신판매업신고번호 : 2007-서울서초-10391 </p>
+					 <p>고객센터 : <a href="tel:1588-8241" style="color:#d9d9d9;">1588-8241</a></p>
+					<p>개인정보 보호책임자 : 김동일</p>
+					<ul>
+						<!-- 170329 개인정보 처리방침 , 이용약관 strong 태그 추가 -->
+						<li><a href="http://shop.adidas.co.kr/PF010107.action?gubn=1" target="_blank"><strong>이용약관</strong></a></li>
+						<li><a href="http://shop.adidas.co.kr/PF010107.action?gubn=2" target="_blank"><strong>개인정보처리방침</strong></a></li>
+						<li><a href="http://www.ftc.go.kr/info/bizinfo/communicationViewPopup.jsp?wrkr_no=2148107412" target="_blank">사업자정보확인</a></li>
+						<li><a href="http://m.adidas.co.kr/m_pop_justice_bns.html" target="_blank">공정거래자율준수</a></li>
+						<li><a href="http://m.adidas.co.kr/Common/CertifiedInfoPop.jsp" target="_blank">채무지급보증안내</a></li>
+					</ul>
+					<p>© 2011 adidas Korea Inc. All Rights Reserved</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- 170823 팝업 START -->
+		<div class="modal-popup-wrapper"
+		    data-modalpop=""
+		    data-modalpop-name="welcomeAdiclub"
+		    data-modalpop-autoopen=""
+		>
+		    <div class="overlay"></div>
+		    <div class="popup" style="padding:0 10px;">
+		        <div class="popup-header" style="z-index:10;">
+		            <a href="javascript:void(0)" class="close_x_btn" style="margin-top: 31px;margin-right: 5px;"></a>
+		        </div>
+
+		        <div class="popup-contents">
+					<div style="position: relative;">
+						<img src="//imagem.adidas.co.kr/images/adidas/popup/welcome_adiclub_170823.jpg" alt="" style="width:100%;">
+						<a href="#" style="position: absolute;bottom: 5.5%;left: 2.5%;display: block;width: 95%;height: 16.5%;"></a>
+					</div>
+					<div style="padding-top:15px;">
+						<div>
+							<input id="not_today" type="checkbox" style="vertical-align:middle;">
+							<label for="not_today" style="vertical-align:middle;margin-left:3px;color:#000;font-size:12px;">오늘하루 보지 않기</label>
+						</div>
+					</div>
+		        </div>
+		    </div>
+		</div>
+		<!-- 170823 팝업 END -->
+
+
+	</div>
+
+	<script type="text/javascript" src="/js/adidas/common.js"></script>
+</body>
+
+</html>

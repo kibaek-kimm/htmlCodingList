@@ -9,7 +9,7 @@
 var codingListInfo = {
     htmlPath : setCustomPath('./public/html/'),
     jsonFilePath : setCustomPath('./public/data/'),
-    jsonFileName : 'codingListInfo.json',
+    jsonFileName : 'list.json',
     staticPath : '/public'
 };
 
@@ -21,7 +21,14 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 var htmlPath = codingListInfo.htmlPath;
-var htmlListJson = require(codingListInfo.jsonFilePath + codingListInfo.jsonFileName);
+try{
+    var htmlListJson = require(codingListInfo.jsonFilePath + codingListInfo.jsonFileName);
+    console.log('import json');
+}catch(e){
+    console.log(e);
+    writeFile('{}' , './public/data/')
+}
+
 var htmlList = {};
 
 app.use('/',express.static(path.join(__dirname , codingListInfo.staticPath)));
@@ -58,32 +65,56 @@ function parseJsonData(target , source){
     var key,
         i = 0,
         j = 0;
-
+    console.log(1111);
     /* Indexing in particular object */
     for(key in target){
         if(source[key] && !!source[key].desc){
+            console.log('폴더 설명');
             target[key].desc = source[key].desc;
         }
 
         if(source[key] && (source[key].path == target[key].path)){
             /* Matching name property one by one which included  array in loop */
-            for(; i < target[key].htmlData.length; i++){
-                for(; j < source[key].htmlData.length; j++){
-                    if(target[key].htmlData[i].name == source[key].htmlData[j].name){
+            if(target[key].htmlData){
+                for(; i < target[key].htmlData.length; i++){
+                    for(; j < source[key].htmlData.length; j++){
+                        if(target[key].htmlData[i].name == source[key].htmlData[j].name){
 
-                        if(!!source[key].htmlData[j].desc){
-                            target[key].htmlData[i].desc = source[key].htmlData[j].desc;
+                            if(!!source[key].htmlData[j].desc){
+                                target[key].htmlData[i].desc = source[key].htmlData[j].desc;
 
-                            j = 0;
-                            break;
+                                j = 0;
+                                break;
+                            }
                         }
                     }
+                    j = 0;
                 }
-                j = 0;
+                i = 0;
             }
+
+            if(target[key].folderData){
+                for(; i < target[key].folderData.length; i++){
+                    for(; j < source[key].folderData.length; j++){
+                        if(target[key].folderData[i].name == source[key].folderData[j].name){
+
+                            if(!!source[key].folderData[j].desc){
+                                target[key].folderData[i].desc = source[key].folderData[j].desc;
+
+                                j = 0;
+                                break;
+                            }
+                        }
+                    }
+                    j = 0;
+                }
+            }
+
         }
         i = 0;
     }
+
+    console.log(JSON.stringify(target));
     return target;
 }
 
@@ -94,7 +125,9 @@ function parseJsonData(target , source){
  * @param {String} targetPath
  */
 function writeFile(data , targetPath){
-    fs.writeFile(path.join(__dirname , targetPath+'codingListInfo.json'),data,function(err){
+    console.log(__dirname , targetPath + codingListInfo.jsonFileName);
+    fs.writeFile(path.join(__dirname , targetPath + codingListInfo.jsonFileName),data,function(err){
+        console.log(htmlListJson);
         if(err) return console.log(err);
     });
 }
@@ -113,7 +146,6 @@ function writeFile(data , targetPath){
 function getFilesFromDir(fileInfo , targetObj){
     var ctgrName;
     var rootPath;
-    var dirCount = 0;
     var htmlListData = targetObj ? targetObj : {};
 
     if(fileInfo[1] == undefined){
@@ -126,52 +158,66 @@ function getFilesFromDir(fileInfo , targetObj){
 
     var fileList = fs.readdirSync(path.join(__dirname,fileInfo[0]));
 
-    fileList.forEach(function(file){
+    if(fileList.length > 0){
+        fileList.forEach(function(file){
+            var stats = fs.statSync(path.join(__dirname,fileInfo[0]+file));
 
-        var stats = fs.statSync(path.join(__dirname,fileInfo[0]+file));
-
-        if(stats.isFile()  && !file.match(/\.html/) ){
-            return;
-        }
-
-        if(stats.isFile()){
-            var isExsist = false;
-
-            if(!htmlListData[ctgrName]){
-                htmlListData[ctgrName] = {
-                    path : rootPath
-                };
+            if(stats.isFile()  && !file.match(/\.html/) ){
+                return;
             }
 
-            /* Checking whether it has already that file infomation */
-            if(htmlListData[ctgrName].htmlData){
-                for(var i = 0; i< htmlListData[ctgrName].htmlData.length; i++){
-                    if(htmlListData[ctgrName].htmlData[i].name == file){
-                        isExsist = true;
-                        break;
+            if(stats.isFile()){
+                var isExsist = false;
+
+                if(!htmlListData[ctgrName]){
+                    htmlListData[ctgrName] = {
+                        path : rootPath
+                    };
+                }
+
+                /* Checking whether it has already that file infomation */
+                if(htmlListData[ctgrName].htmlData){
+                    for(var i = 0; i< htmlListData[ctgrName].htmlData.length; i++){
+                        if(htmlListData[ctgrName].htmlData[i].name == file){
+                            isExsist = true;
+                            break;
+                        }
                     }
                 }
-            }
 
 
-            if(!isExsist){
-                if(htmlListData[ctgrName].htmlData == undefined){
-                    htmlListData[ctgrName].htmlData = [];
+                if(!isExsist){
+                    if(htmlListData[ctgrName].htmlData == undefined){
+                        htmlListData[ctgrName].htmlData = [];
+                    }
+
+                    htmlListData[ctgrName].htmlData.push({
+                        name : file
+                    });
+                }
+            }else{
+                if(!htmlListData[ctgrName]){
+                    htmlListData[ctgrName] = {
+                        path : rootPath
+                    };
                 }
 
-                htmlListData[ctgrName].htmlData.push({
+                if(htmlListData[ctgrName].folderData == undefined){
+                    htmlListData[ctgrName].folderData = [];
+                }
+
+                htmlListData[ctgrName].folderData.push({
                     name : file
                 });
 
-                dirCount += 1;
+                if( !(fileInfo[0]+file).match(/\/build\/?/) ){
+                    getFilesFromDir([fileInfo[0]+file+'/' ,rootPath.replace(/^\//,'root___').replace(/\//g,'___') + file, rootPath+file+'/'] , htmlListData);
+                }
             }
-        }else{
-
-            if( !(fileInfo[0]+file).match(/\/build\/?/) ){
-                getFilesFromDir([fileInfo[0]+file+'/' ,rootPath.replace(/^\//,'root___').replace(/\//g,'___') + file, rootPath+file+'/'] , htmlListData);
-            }
-        }
-    });
+        });
+    }else{
+        htmlListData[ctgrName] = false;
+    }
 
     return htmlListData;
 }
@@ -184,6 +230,7 @@ function getFilesFromDir(fileInfo , targetObj){
 function init(dirPath){
     var newData = getFilesFromDir([dirPath]);
     var targetPath = './public/data/';
+    console.log(JSON.stringify(newData));
 
     htmlList = parseJsonData(newData , htmlListJson);
 

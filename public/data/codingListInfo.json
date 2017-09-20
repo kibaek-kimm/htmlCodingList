@@ -1,1 +1,10 @@
-{}
+{
+    "root": {
+        "path": "/",
+        "htmlData": [
+            {
+                "name": "adi_norefund.html"
+            }
+        ]
+    }
+}

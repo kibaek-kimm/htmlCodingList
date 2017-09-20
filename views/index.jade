@@ -42,6 +42,13 @@ html(lang='en')
                 padding:13px 15px;
                 margin: 0 5px;
                 display: inline-block;
+                background:#ddd;
+                font:13px 'Noto Sans Kr';
+                text-decoration:none;
+            }
+            
+            .button_area .btn-ctm#submit-data{
+                display:none;
             }
             
             .utilbox.fixed .search_area{
@@ -380,7 +387,6 @@ html(lang='en')
                                 }
                 
                                 if(count == targetPath.length){
-                
                                     newObj.push(key);
                                     count = 0 ;
                                     continue;
@@ -403,10 +409,18 @@ html(lang='en')
                     const hasObj = getBooleanByKey(hash);
                     
                     if(hasObj){
-                        renderHTML(getDataForRender(hash));
+                        //- renderHTML(getDataForRender(hash));
+                        console.log(htmlData[hash]);
+                        renderHTML(htmlData[hash]);
                     }else{
                         renderHTML(false);
                     }
+                    
+                    $('#search-html').val('');
+                    $('#submit-data').hide();
+                    $('#toggle-mode').removeClass('edit').find('span').text('수정 하기');
+                    $('#wrapper').removeClass('edit-mode');
+                    
                 };
                 
                 
@@ -466,12 +480,11 @@ html(lang='en')
                         },
                         success:function(result){
                             $('#loading').remove();
-                            renderHTML(getDataForRender(curCategory));
+                            renderHTML(htmlData[curCategory]);
                         },
                         error:function(e){
                             $('#loading').remove();
                             $('#wrapper').removeClass('edit-mode');
-                            //- renderHTML(getDataForRender(curCategory));
                             setHash();
                         },
                         dataType : 'json',
@@ -491,7 +504,8 @@ html(lang='en')
                             var index = elem.dataset.index;
                         
                             if(elem.dataset.isdir == 'true'){                                
-                                htmlData[key].desc = event.target.value.replace(/"/,'\"');
+                                htmlData[elem.getAttribute('id')].desc = event.target.value.replace(/"/,'\"');
+                                htmlData[key]['folderData'][index].desc = event.target.value.replace(/"/,'\"');
                             }else{
                                 htmlData[key]['htmlData'][index].desc = event.target.value.replace(/"/,'\"');
                             }
@@ -506,37 +520,10 @@ html(lang='en')
                         });
                     });
                 
-                    $('#toggle-mode').bind('click',function(){
-                        if(window.location.hostname == 'localhost'){
-                            if($('.search_result').length <= 0){
-                                if($(this).hasClass('edit')){
-                                    $(this).removeClass('edit');
-                                    $('#submit-data').addClass('disable');
-                                    $('#wrapper').removeClass('edit-mode');
-                                    $(this).find('span').text('EDIT MODE');
-                                }else{
-                                    $(this).addClass('edit');
-                                    $('#submit-data').removeClass('disable');
-                                    $('#wrapper').addClass('edit-mode');
-                                    $(this).find('span').text('VIEW MODE');
-                                }
-                            }
-                        }
-                    });
-                
-                    $('#submit-data').bind('click',function(){
-                        if(window.location.hostname == 'localhost'){
-                            if($(this).hasClass('disable')){
-                                return;
-                            }
-                            submitInfo();
-                        }
-                    });
-                
-                
                 }
                 
                 const renderHTML = data => {
+                
                     if(!data){
                         document.getElementById('coding-list').innerHTML = `
                             <div class="nodata" style="text-align: center;font: 700 16px 'NotoSansKR';color: #000;">데이터가 없습니다.</div>
@@ -545,66 +532,45 @@ html(lang='en')
                         return false;
                     }
                     
-                    let htmlString = `<div class="title">${data[data.length-1].path}</div>`;
+                    let htmlString = `<div class="title">${data.path}</div>`;
                 
-                    if(data[data.length-1].depth > 1){
-                        const parentPath = (() =>{
-                            let path = '';
-                            data[data.length-1].parentDir.map((data , index) => {
-                                if(index == 0){
-                                    path += 'root';
-                                }else{
-                                    path += '___'+data;
-                                }
-                            });
                 
-                            return path;
-                        })();
-            
-                
-                        htmlString += `
-                            <div class="col_box dir_col">
-                                <ul>
-                                    <li class="name dir"><a href="javascript:void(0)" data-dir="${parentPath}" title="">...</a></li>
-                                </ul>
-                            </div>
-                        `;
-                    }
-                
-                    data.map( renderData => {
-                
-                        const keyName = typeof renderData === 'string' ? renderData.replace(/^root___/,'/').replace(/___/g,'/') : renderData.path;
-                
-                        if(typeof renderData === 'string'){
+                    const absolutePath = data.path;
+                    const key = absolutePath.replace(/^\/$/,'root').replace(/^\//g,'root___').replace(/\//,'___');
+                    
+                    if(data['folderData']){
+                        data['folderData'].map((value , index) => {
+                        
                             htmlString += `
                                 <div class="col_box dir_col">
                                     <ul>
-                                        <li class="name dir"><a href="javascript:void(0)" data-dir="${renderData}" title="${keyName}">${keyName}</a></li>
-                                        <li class="desc">${htmlData[renderData].desc ? htmlData[renderData].desc : ''}</li>
-                                        <li class="modify"><input type="text" id="${renderData}" value="${htmlData[renderData].desc ? htmlData[renderData].desc : ''}" data-key="${renderData}" data-isdir="true"></li>
+                                        <li class="name dir"><a href="javascript:void(0)" data-dir="${key[key.length-1] === 't' ? key + '___' + value.name : key + value.name}" title="${value.name}">${value.name}</a></li>
+                                        <li class="desc">${value.desc ? value.desc : ''}</li>
+                                        <li class="modify"><input type="text" id="${key[key.length-1] === 't' ? key+'___'+value.name.replace(/\.html/,'') : key + value.name.replace(/\.html/,'')}" value="${value.desc ? value.desc : ''}" data-key="${key.replace(/___$/,'').replace(/\/$/,'')}" data-index="${index}" data-isdir="true"></li>
+                                    </ul>
+                                </div> 
+                            `;
+                        });
+                    }
+                
+                    if(data['htmlData']){
+                        
+                        data['htmlData'].map((value , index) => {
+                            const key = absolutePath.replace(/^\/$/,'root').replace(/^\//,'root___').replace(/\//,'___');
+                            htmlString += `
+                                <div class="col_box">
+                                    <ul>
+                                        <li class="name">
+                                            <a href="javascript:void(0)" onclick="changeContets('${absPath + absolutePath.replace(/root_/,'/') +'/'+ value.name }' , this)">${value.name}</a>
+                                            <a href="${absPath + absolutePath.replace(/root_/,'/') +'/'+ value.name }" style="margin-left:6px;" target="_blank"><img src="/images/ico_new_window.png" alt="새창" title="새창"/></a>
+                                        </li>
+                                        <li class="desc">${value.desc ? value.desc : ''}</li>
+                                        <li class="modify"><input type="text" id="${key+'___'+value.name.replace(/\.html/,'')}" value="${value.desc ? value.desc : ''}" data-key="${key.replace(/___$/,'').replace(/\/$/,'')}" data-index="${index}"></li>
                                     </ul>
                                 </div>
                             `;
-                        }else{
-                            renderData['htmlData'].map((value , index) => {
-                                const key = renderData.path.replace(/^\/$/,'root').replace(/^\//,'root___').replace(/\//,'___');
-                                htmlString += `
-                                    <div class="col_box">
-                                        <ul>
-                                            <li class="name">
-                                                <a href="javascript:void(0)" onclick="changeContets('${absPath + keyName.replace(/root_/,'/') +'/'+ value.name }' , this)">${value.name}</a>
-                                                <a href="${absPath + keyName.replace(/root_/,'/') +'/'+ value.name }" style="margin-left:6px;" target="_blank"><img src="/images/ico_new_window.png" alt="새창" title="새창"/></a>
-                                            </li>
-                                            <li class="desc">${value.desc ? value.desc : ''}</li>
-                                            <li class="modify"><input type="text" id="${key+'___'+value.name.replace(/\.html/,'')}" value="${value.desc ? value.desc : ''}" data-key="${key.replace(/___$/,'').replace(/\/$/,'')}" data-index="${index}"></li>
-                                        </ul>
-                                    </div>
-                                `
-                            });
-                        }
-                
-                
-                    })
+                        });
+                    }
                 
                     htmlString += `</div>`;
                     document.getElementById('coding-list').innerHTML = htmlString;
@@ -626,18 +592,18 @@ html(lang='en')
                         if(data[key].type == 'folder'){
                             
                             htmlString += `
-                            <div class="col_box dir_col">
-                                <ul>
-                                    <li class="name dir">
-                                        <a href="javascript:void(0)" data-dir="${data[key].originName}">${data[key].name}</a>
-                                    </li>
-                                    
-                                    ${data[key].desc ? `<li class="desc">${data[key].desc}</li>` : ''}
-                                    <li class="modify">
-                                        <input type="text" id="${data[key].originName.replace(/\.html/,'')}" value="${data[key].desc ? data[key].originDesc : ''}" data-key="${data[key].originName.replace(/___$/,'').replace(/\/$/,'')}">
-                                    </li>
-                                </ul>
-                            </div>
+                                <div class="col_box dir_col">
+                                    <ul>
+                                        <li class="name dir">
+                                            <a href="javascript:void(0)" data-dir="${data[key].originName}">${data[key].name}</a>
+                                        </li>
+                                        
+                                        ${data[key].desc ? `<li class="desc">${data[key].desc}</li>` : ''}
+                                        <li class="modify">
+                                            <input type="text" id="${data[key].originName.replace(/\.html/,'')}" value="${data[key].desc ? data[key].originDesc : ''}" data-key="${data[key].originName.replace(/___$/,'').replace(/\/$/,'')}">
+                                        </li>
+                                    </ul>
+                                </div>
                             `;
                         }else{
                             htmlString += `    <div class="title">${ key.replace(/^root$/g,'/').replace(/^root___/g,'/').replace(/___/g,'/') }</div>`;
@@ -719,7 +685,9 @@ html(lang='en')
                    },
                    success:function(result){
                         $('#loading').remove();
-                        htmlData = handleData(result);
+                        console.log(result);
+                        //- htmlData = handleData(result);
+                        htmlData = result;
                         setHash();
                    },
                    error:function(e){
@@ -784,22 +752,22 @@ html(lang='en')
                                         });
                                     }
                                     
-                                    for(var i = 0; i < htmlData[key].htmlData.length; i++){
-                                        var nameKeyword = searchKeyword(htmlData[key].htmlData[i].name,keyword);
-                                        var descKeyword = htmlData[key].htmlData[i].desc == undefined ? false : searchKeyword(htmlData[key].htmlData[i].desc,keyword);
-                                        
-                                        if(nameKeyword || descKeyword){
-                                            newArray.push({
-                                                originName : htmlData[key].htmlData[i].name,
-                                                name :!nameKeyword ? htmlData[key].htmlData[i].name : nameKeyword,
-                                                path : path,
-                                                desc : !!descKeyword ? descKeyword : htmlData[key].htmlData[i].desc,
-                                                originDesc : htmlData[key].htmlData[i].desc
-                                                
-                                            });
-
+                                    if(htmlData[key].htmlData){
+                                        for(var i = 0; i < htmlData[key].htmlData.length; i++){
+                                            var nameKeyword = searchKeyword(htmlData[key].htmlData[i].name,keyword);
+                                            var descKeyword = htmlData[key].htmlData[i].desc == undefined ? false : searchKeyword(htmlData[key].htmlData[i].desc,keyword);
+                                            
+                                            if(nameKeyword || descKeyword){
+                                                newArray.push({
+                                                    originName : htmlData[key].htmlData[i].name,
+                                                    name :!nameKeyword ? htmlData[key].htmlData[i].name : nameKeyword,
+                                                    path : path,
+                                                    desc : !!descKeyword ? descKeyword : htmlData[key].htmlData[i].desc,
+                                                    originDesc : htmlData[key].htmlData[i].desc
+                                                    
+                                                });
+                                            }
                                         }
-                                        
                                     }
                                 }
                             }
@@ -930,3 +898,27 @@ html(lang='en')
                 }else{
                     $('.button_area').remove();
                 }
+                
+                $('#toggle-mode').bind('click',function(){
+                    if(window.location.hostname == 'localhost'){
+                        if($('.search_result').length <= 0){
+                            if($(this).hasClass('edit')){
+                                $(this).removeClass('edit');
+                                $('#submit-data').hide();
+                                $('#wrapper').removeClass('edit-mode');
+                                $(this).find('span').text('수정 하기');
+                            }else{
+                                $(this).addClass('edit');
+                                $('#submit-data').show();
+                                $('#wrapper').addClass('edit-mode');
+                                $(this).find('span').text('취소');
+                            }
+                        }
+                    }
+                });
+            
+                $('#submit-data').bind('click',function(){
+                    if(window.location.hostname == 'localhost'){
+                        submitInfo();
+                    }
+                });

@@ -1,0 +1,314 @@
+@import './app/css/adidas/scss/common/mixin.scss';
+@import './app/css/adidas/scss/common/common.scss';
+
+
+#campus{
+	.button{
+		width: 100%;
+		height: auto;
+		padding:1rem 1.5rem;
+		display: inline-block;
+		border: 1px solid #000;
+		font-size:1.2rem;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		text-align: center;
+		font:400 1.1rem/1.1rem 'NotoSansKR';
+		color: #000;
+
+		&::after{
+			margin-left: 0.5rem;
+			vertical-align: middle;
+		}
+
+		&:active , &.active{
+			background: #000;
+			color: #fff;
+		}
+	}
+
+	.masthead{
+		padding:3.5rem 1.5rem 1.5rem;
+		background:url('http://imagem.adidas.co.kr/images/adidas/event/campus/background_masthead.jpg') 0 0 repeat;
+		background-size: 100% auto;
+
+		h2{
+			margin-bottom: 1rem;
+			img{
+				width: 16rem;
+			}
+		}
+
+		.copy_title{
+			margin-bottom: 1rem;
+			font: 2rem 'NotoSansKR';
+		}
+
+		.copy_desc{
+			margin-bottom: 1rem;
+			font:300 1rem 'NotoSansKR';
+		}
+
+		.line{
+			margin-bottom: 1rem;
+			text-align: right;
+
+			img{
+				width: 100px;
+			}
+		}
+
+		.video{
+			width: 100%;
+			margin-bottom: 1.5rem;
+
+			img{
+				width: 100%;
+			}
+		}
+	}
+	/* masthead END */
+
+	.statement{
+		padding: 3.5rem 0 2.5rem;
+		text-align: center;
+		background:url('http://imagem.adidas.co.kr/images/adidas/event/campus/background_statement.jpg') 0 0 no-repeat;
+		background-size: cover;
+		-webkit-background-size: cover;
+
+		*{
+			color: #fff;
+		}
+
+		.copy1{
+			font-size: 0.95rem;
+			line-height: 1.5rem;
+			font-family:'NotoSansKR';
+			font-weight: 300;
+
+			&::after{
+				@extend .pseudo-element;
+				width: 30px;
+				height: 1px;
+				background: #fff;
+				margin: 1.2rem auto 1.5rem;
+			}
+		}
+
+		.copy2{
+			font-size: 1rem;
+			line-height: 1.5rem;
+			strong{
+				display: block;
+				font:700 1.3rem 'NotoSansKR';
+			}
+		}
+	}
+	/* statement END */
+
+	.product_highlight{
+		background:url('http://imagem.adidas.co.kr/images/adidas/event/campus/background_default.jpg') 0 0 repeat;
+		background-size: 100% auto;
+
+		&.highlight_korean{
+			.modelcut{
+				padding-bottom: 105.25%;
+				position: relative;
+
+				.box{
+					position: absolute;
+					top: 0;
+					left: 0;
+					opacity: 0;
+					@include css3(transition,opacity 0.3s);
+
+					&.active{
+						opacity: 1;
+					}
+
+				}
+			}
+
+			.copy_wrapper{
+				position: relative;
+				height: 16rem;
+
+				.copy_box{
+					width: 100%;
+					padding: 0 3rem;
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 14.5rem;
+					opacity: 0;
+					box-sizing: border-box;
+					-webkit-box-sizing: border-box;
+
+					@include css3(transition,opacity 0.3s);
+
+					&.active{
+						opacity: 1;
+					}
+
+					.button_area{
+						width: 100%;
+						padding: 0 3rem;
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						box-sizing: border-box;
+						-webkit-box-sizing: border-box;
+
+						a{
+							background: none;
+						}
+					}
+				}
+			}
+		}
+		/* highlight_korean */
+
+		&.history_highlight{
+			margin-bottom: 0;
+			padding: 3rem 0;
+			background:#000 url('http://imagem.adidas.co.kr/images/adidas/event/campus/background_history.jpg') center 0 no-repeat;
+			background-size: cover;
+			.copy_wrapper{
+				margin-bottom: 0;
+				h3{
+					color: #fff;
+				}
+				.desc{
+					color: #fff;
+				}
+				.button{
+					border-color: #fff;
+					color: #fff;
+				}
+			}
+
+		}
+
+		.modelcut{
+			width: 100%;
+			position: relative;
+
+			img{
+				width: 100%;
+			}
+		}
+
+		.slider_wrapper{
+			padding: 3rem 3rem 0;
+			margin-bottom: 3rem;
+
+			.slider{
+				position: relative;
+				width: 100%;
+				overflow: hidden;
+
+				ul{
+					width: 100%;
+					position: relative;
+					margin-bottom: 1rem;
+					overflow: hidden;
+					li{
+						width: 100%;
+						float: left;
+						position: relative;
+						display: block;
+						img{
+							width: 100%;
+						}
+					}
+				}
+			}
+
+
+
+			.num{
+				margin-top: 1rem;
+				text-align: center;
+				span{
+					width: 8px;
+					height: 8px;
+					display: inline-block;
+					margin: 0 0.2rem;
+					background: #7d7d7d;
+					border-radius: 50%;
+
+					&.on{
+						background: #000;
+					}
+				}
+			}
+		}
+
+		.copy_wrapper{
+			padding:0 3rem;
+			margin-bottom: 3rem;
+
+			>*{
+				text-align: center;
+			}
+
+			h3{
+				margin-bottom: 1rem;
+				color: #000;
+				font:2.2rem 'adihaus-bold';
+				letter-spacing: 3px
+			}
+
+			.desc{
+				margin-bottom: 2rem;
+				font:400 1.1rem/1.6rem 'NotoSansKR';
+			}
+
+
+		}
+	}
+
+}
+
+#video-layer{
+  position:fixed;top:0;left:0;width: 100%;height: 100%;z-index:1000;
+}
+#video-layer .bg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin:center center;
+  -webkit-transform-origin:center center;
+  transform:scale(0);
+  -webkit-transform:scale(0);
+  opacity:0;
+  background:#000;
+  z-index:1;
+  transition:all 0.4s;
+  -webkit-transition:all 0.4s;
+}
+#video-layer.loaded .bg{
+  opacity: 1;
+  transform:scale(1.2);
+  -webkit-transform:scale(1.2);
+}
+#video-layer .video-box{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+#video-layer .close_x_btn{
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  opacity: 0;
+}
+#video-layer.loaded .close_x_btn{
+  opacity: 1;
+}
