@@ -32,8 +32,7 @@
         ],
         "folderData": [
             {
-                "name": "event",
-                "desc": "캠페인 폴더"
+                "name": "event"
             },
             {
                 "name": "layer_popups"
@@ -53,8 +52,7 @@
         "path": "/event/",
         "folderData": [
             {
-                "name": "alexander_wang",
-                "desc": "알렉산더 왕"
+                "name": "alexander_wang"
             },
             {
                 "name": "athletic"
@@ -83,8 +81,7 @@
             {
                 "name": "creator_know_how"
             }
-        ],
-        "desc": "캠페인 폴더"
+        ]
     },
     "root___event___alexander_wang": {
         "path": "/event/alexander_wang/",
@@ -95,11 +92,9 @@
         ],
         "htmlData": [
             {
-                "name": "index.html",
-                "desc": "알렉산더왕 캠페인"
+                "name": "index.html"
             }
-        ],
-        "desc": "알렉산더 왕"
+        ]
     },
     "root___event___athletic": {
         "path": "/event/athletic/",
@@ -374,8 +369,7 @@
             {
                 "name": "44_women"
             }
-        ],
-        "desc": "내용 추가"
+        ]
     },
     "root___promotion___44_4614": {
         "path": "/promotion/44_4614/",

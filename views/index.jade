@@ -538,6 +538,26 @@ html(lang='en')
                     const absolutePath = data.path;
                     const key = absolutePath.replace(/^\/$/,'root').replace(/^\//g,'root___').replace(/\//,'___');
                     
+                    if(data.path !== '/'){
+                        
+                        let prevDir = 'root';
+                        
+                        data.path.split('/').map((value , index) => {
+                            if(value !== ''){
+                                if( index < data.path.split('/').length - 2)
+                                prevDir += '___'+value;
+                            }
+                        });
+                        
+                        htmlString += `
+                            <div class="col_box dir_col">
+                                <ul>
+                                    <li class="name dir"><a href="javascript:void(0)" data-dir="${prevDir}" title="Back">...</a></li>
+                                </ul>
+                            </div> 
+                        `;
+                    }
+                    
                     if(data['folderData']){
                         data['folderData'].map((value , index) => {
                         
@@ -585,6 +605,12 @@ html(lang='en')
                             <div class="search_title">검색결과 입니다.</div>
                     `;
                     const absPath = '/public/html/';
+                    console.log(data)
+                    
+                    //- const absolutePath = data.path;
+                    //- const key = absolutePath.replace(/^\/$/,'root').replace(/^\//g,'root___').replace(/\//,'___');
+                    //- 
+                    //- 
                     for(key in data){
                         if(key == 'length'){
                             continue;
